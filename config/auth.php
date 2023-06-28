@@ -143,4 +143,15 @@ return [
 
     'user_register' => env('AUTH_USER_REGISTER', false),
 
+    /*
+    |--------------------------------------------------------------------------
+    | User Registration - Default Role
+    |--------------------------------------------------------------------------
+    |
+    |
+    | Here you may set the default role for new users
+    |
+    */
+
+    'user_register_role' => env('AUTH_USER_REGISTER_ROLE', \App\Interfaces\RoleInterface::USER),
 ];
