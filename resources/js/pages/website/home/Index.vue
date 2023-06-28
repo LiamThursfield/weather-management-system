@@ -55,7 +55,7 @@
                             sm:ml-6
                         "
                     >
-                        Laravel TVI
+                        Weather Management System
                     </span>
                 </h1>
             </div>

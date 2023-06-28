@@ -13,11 +13,11 @@
         name: "WebsiteLayout",
         metaInfo() {
             return {
-                title: 'Laravel TVI',
+                title: 'Weather Management System',
                 meta: [
                     {
                         name: 'description',
-                        content: 'Laravel TVI - A CMS powered by Laravel, Tailwind, Vue, and Inertia',
+                        content: 'Weather Management System - Powered by Laravel TVI',
                     }
                 ]
             }
