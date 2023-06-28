@@ -125,6 +125,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Allowed Domains
+    |--------------------------------------------------------------------------
+    |
+    | This key is used by the RestrictByDomain middleware to restrict access
+    | to the application to a set of domains. If the array is empty, the
+    | middleware will not be applied.
+    |
+    */
+    'allowed_domains' => env('APP_ALLOWED_DOMAINS', null) ?
+        explode(',', env('APP_ALLOWED_DOMAINS')) :
+        [],
+
+    /*
+    |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |
