@@ -17,7 +17,11 @@ cp .env.example .env
 ./vendor/bin/sail yarn dev
 ```
 
-To generate a super-user account, run the following command:
+Setup OpenWeatherMap API key:
+- Create an account on [OpenWeatherMap](https://openweathermap.org/)
+- Copy the API key from your account into the `OPEN_WEATHER_MAP_API_KEY` variable in the `.env` file
+
+(Optional) To generate a super-user account, run the following command:
 ```
 ./vendor/bin/sail artisan user:create-super
 ```
