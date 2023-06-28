@@ -21,10 +21,16 @@ Setup OpenWeatherMap API key:
 - Create an account on [OpenWeatherMap](https://openweathermap.org/)
 - Copy the API key from your account into the `OPEN_WEATHER_MAP_API_KEY` variable in the `.env` file
 
-(Optional) To generate a super-user account, run the following command:
+(**Optional**) To generate a super-user account, run the following command:
 ```
 ./vendor/bin/sail artisan user:create-super
 ```
+
+(**Optional**) To restrict access to certain routes via domain, add the following to your `.env` file:
+```
+APP_ALLOWED_DOMAINS=example.com,example.org
+```
+**Note: If empty, all domains will be allowed**
 
 ## Running Tests
 To run the tests, run the following command:
