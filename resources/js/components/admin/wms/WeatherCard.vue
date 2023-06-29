@@ -39,7 +39,7 @@
 
            <p
                v-if="temp !== null"
-               class="bg-theme-base font-semibold mt-6 px-4 py-2 rounded-md text-4xl"
+               class="bg-theme-base font-semibold mt-6 px-4 py-2 rounded-md text-3xl"
            >
                {{ temp }}<span class="ml-1 opacity-75 text-xl">°C</span>
            </p>
