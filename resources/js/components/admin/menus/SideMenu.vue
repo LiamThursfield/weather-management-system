@@ -97,6 +97,37 @@
                         requiresAnyPermissions: [],
                         showLabel: false,
                     },
+                    wms: {
+                        children: {
+                            favourite_cities: {
+                                activeRoutes: ["admin.wms.favourite-cities.index", "admin.wms.favourite-cities.create", "admin.wms.favourite-cities.edit"],
+                                children: {
+                                    index: {
+                                        icon: false,
+                                        label: "View Favourites",
+                                        requiresAllPermissions: ["wms.view"],
+                                        requiresAnyPermissions: [],
+                                        route: "admin.wms.favourite-cities.index",
+                                    },
+                                    create: {
+                                        icon: false,
+                                        label: "Add Favourite",
+                                        requiresAllPermissions: ["wms.create"],
+                                        requiresAnyPermissions: [],
+                                        route: "admin.wms.favourite-cities.create",
+                                    },
+                                },
+                                icon: "icon-map-pin-heart",
+                                label: "Favourite Cities",
+                                requiresAllPermissions: [],
+                                requiresAnyPermissions: ["wms.create", "wms.view"],
+                            }
+                        },
+                        label: "WMS",
+                        requiresAllPermissions: [],
+                        requiresAnyPermissions: ["wms.edit", "wms.create", "wms.view"],
+                        showLabel: true,
+                    },
                     settings: {
                         children : {
                             users: {

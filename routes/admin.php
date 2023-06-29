@@ -1,16 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\CMS\LayoutController;
-use App\Http\Controllers\Admin\CMS\MenuController;
-use App\Http\Controllers\Admin\CMS\PageController;
-use App\Http\Controllers\Admin\CMS\TemplateController;
-use App\Http\Controllers\Admin\CRM\ContactController;
-use App\Http\Controllers\Admin\CRM\FormController;
-use App\Http\Controllers\Admin\CRM\FormSubmissionController;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WMS\FavouriteCityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +28,13 @@ Route::group([
 });
 
 Route::resource('users', UserController::class);
+
+Route::group([
+    'as' => 'wms.',
+    'prefix' => 'wms'
+], function() {
+    Route::resource('favourite-cities', FavouriteCityController::class);
+});
 
 /** Fallback admin route - ensures Auth() calls work as expected in the exception handler */
 Route::fallback(function () {

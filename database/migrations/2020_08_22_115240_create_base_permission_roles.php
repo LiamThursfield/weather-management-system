@@ -82,6 +82,16 @@ class CreateBasePermissionRoles extends Migration
             PermissionInterface::DELETE_USERS,
             PermissionInterface::EDIT_USERS,
             PermissionInterface::VIEW_USERS,
+            // WMS
+            PermissionInterface::CREATE_WMS,
+            PermissionInterface::DELETE_WMS,
+            PermissionInterface::EDIT_WMS,
+            PermissionInterface::VIEW_WMS,
+            // WMS Admin
+            PermissionInterface::CREATE_WMS_ADMIN,
+            PermissionInterface::DELETE_WMS_ADMIN,
+            PermissionInterface::EDIT_WMS_ADMIN,
+            PermissionInterface::VIEW_WMS_ADMIN,
         ];
     }
 
@@ -105,6 +115,16 @@ class CreateBasePermissionRoles extends Migration
                 PermissionInterface::DELETE_USERS,
                 PermissionInterface::EDIT_USERS,
                 PermissionInterface::VIEW_USERS,
+                // WMS
+                PermissionInterface::CREATE_WMS,
+                PermissionInterface::DELETE_WMS,
+                PermissionInterface::EDIT_WMS,
+                PermissionInterface::VIEW_WMS,
+                // WMS Admin
+                PermissionInterface::CREATE_WMS_ADMIN,
+                PermissionInterface::DELETE_WMS_ADMIN,
+                PermissionInterface::EDIT_WMS_ADMIN,
+                PermissionInterface::VIEW_WMS_ADMIN,
             ],
             RoleInterface::SUPER => [],
             RoleInterface::USER => [
@@ -112,6 +132,11 @@ class CreateBasePermissionRoles extends Migration
                 PermissionInterface::VIEW_FILE_MANAGER,
                 // Profile
                 PermissionInterface::VIEW_PROFILE,
+                // WMS
+                PermissionInterface::CREATE_WMS,
+                PermissionInterface::DELETE_WMS,
+                PermissionInterface::EDIT_WMS,
+                PermissionInterface::VIEW_WMS,
             ],
         ];
     }

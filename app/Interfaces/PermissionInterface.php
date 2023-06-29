@@ -33,6 +33,18 @@ class PermissionInterface
     const EDIT_USERS    = 'edit users';
     const VIEW_USERS    = 'view users';
 
+    // WMS Permissions
+    const CREATE_WMS    = 'create wms';
+    const DELETE_WMS    = 'delete wms';
+    const EDIT_WMS      = 'edit wms';
+    const VIEW_WMS      = 'view wms';
+
+    // WMS Admin Permissions
+    const CREATE_WMS_ADMIN    = 'create wms_admin';
+    const DELETE_WMS_ADMIN    = 'delete wms_admin';
+    const EDIT_WMS_ADMIN      = 'edit wms_admin';
+    const VIEW_WMS_ADMIN      = 'view wms_admin';
+
 
     // All Permissions
     // This is used in User()->all_permissions
@@ -53,7 +65,19 @@ class PermissionInterface
             'delete'    => self::DELETE_USERS,
             'edit'      => self::EDIT_USERS,
             'view'      => self::VIEW_USERS,
-        ]
+        ],
+        'wms' => [
+            'create'    => self::CREATE_WMS,
+            'delete'    => self::DELETE_WMS,
+            'edit'      => self::EDIT_WMS,
+            'view'      => self::VIEW_WMS,
+        ],
+        'wms_admin' => [
+            'create'    => self::CREATE_WMS_ADMIN,
+            'delete'    => self::DELETE_WMS_ADMIN,
+            'edit'      => self::EDIT_WMS_ADMIN,
+            'view'      => self::VIEW_WMS_ADMIN,
+        ],
     ];
 
     static function getMiddlewareString($permissions)

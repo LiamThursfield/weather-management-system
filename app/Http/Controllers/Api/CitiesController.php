@@ -20,6 +20,6 @@ class CitiesController extends Controller
             Arr::get($data, 'limit'),
         );
 
-        return response()->json(compact('cities'));
+        return response()->json($cities);
     }
 }
