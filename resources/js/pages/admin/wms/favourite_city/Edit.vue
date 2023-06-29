@@ -48,13 +48,15 @@
         </div>
 
         <favourite-city-selector
-            v-model="this.formData"
+            :initial-city="formData"
+            @citySelected="citySelected($event)"
         />
     </form>
 </template>
 
 <script>
     import FavouriteCitySelector from "../../../../components/admin/wms/FavouriteCitySelector.vue";
+    import _ from "lodash";
 
     export default {
         name: "AdminWmsFavouriteCityEdit",
@@ -81,6 +83,9 @@
             }
         },
         methods: {
+            citySelected(city) {
+                this.formData = _.cloneDeep(city);
+            },
             submit() {
                 this.$inertia.put(
                     this.$route('admin.wms.favourite-cities.update', this.favouriteCity.id),

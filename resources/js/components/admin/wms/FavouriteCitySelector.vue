@@ -174,7 +174,7 @@
             prop: 'selectedCity'
         },
         props: {
-            selectedCity: {
+            initialCity: {
                 default: null,
                 type: Object|null
             }
@@ -186,12 +186,16 @@
                 isLoadingCitySearch: false,
                 isCitySearchInitialised: false,
                 selectedCity: null,
-                showCitySearch: false,
+                showCitySearch: true,
             }
         },
         created() {
-            if (!this.selectedCity || !this.selectedCity.name) {
-                this.showCitySearch = true;
+            if (this.initialCity && this.initialCity.name) {
+                this.showCitySearch = false;
+            }
+
+            if (this.initialCity !== null) {
+                this.selectedCity = _.cloneDeep(this.initialCity);
             }
         },
         methods: {
@@ -212,7 +216,7 @@
                 this.isCitySearchInitialised = false;
                 this.showCitySearch = true;
 
-                this.$emit('input', _.cloneDeep(this.selectedCity));
+                this.$emit('citySelected', _.cloneDeep(this.selectedCity));
             },
             onCitySearchNameChange: _.debounce(function () {
                 this.cities = [];
@@ -254,7 +258,7 @@
                 this.showCitySearch = false;
                 this.citySearchName = '';
 
-                this.$emit('input', _.cloneDeep(this.selectedCity));
+                this.$emit('citySelected', _.cloneDeep(this.selectedCity));
             },
         },
         watch: {

@@ -50,12 +50,15 @@
         </div>
 
         <favourite-city-selector
-            v-model="this.formData"
+            :initial-city="formData"
+            @citySelected="citySelected($event)"
         />
     </form>
 </template>
 
 <script>
+    import _ from 'lodash';
+
     import FavouriteCitySelector from "../../../../components/admin/wms/FavouriteCitySelector.vue";
 
     export default {
@@ -74,6 +77,9 @@
             }
         },
         methods: {
+            citySelected(city) {
+                this.formData = _.cloneDeep(city);
+            },
             submit() {
                 this.$inertia.post(
                     this.$route('admin.wms.favourite-cities.store'),
