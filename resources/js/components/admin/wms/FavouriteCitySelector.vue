@@ -55,7 +55,17 @@
                                     "
                                     @click="selectCity(city)"
                                 >
-                                    <strong class="font-semibold">{{ city.name }}</strong>, {{ city.state }}, {{ city.country }}
+                                    <strong class="font-semibold">
+                                        {{ city.name }}
+                                    </strong>
+
+                                    <template v-if="city.state">
+                                        - {{ city.state }}
+                                    </template>
+
+                                    <template v-if="city.country">
+                                        - {{ city.country }}
+                                    </template>
                                 </li>
                             </ul>
                         </template>

@@ -13,7 +13,7 @@ class FavouriteCityStoreRequest extends BaseRequest
             'lat'       => 'required|numeric',
             'lon'       => 'required|numeric',
             'name'      => 'required|string|max:255',
-            'state'     => 'required|string|max:255',
+            'state'     => 'nullable|string|max:255',
         ];
     }
 }

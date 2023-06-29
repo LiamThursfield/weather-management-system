@@ -21,7 +21,7 @@ class CreateFavouriteCitiesTable extends Migration
             $table->float('lat');
             $table->float('lon');
             $table->string('country');
-            $table->string('state');
+            $table->string('state')->nullable();
             $table->timestamps();
 
             // Index Creation
