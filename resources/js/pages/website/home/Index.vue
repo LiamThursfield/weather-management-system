@@ -2,7 +2,7 @@
     <div class="bg-gray-100 flex flex-col min-h-screen min-w-screen">
         <nav class="flex flex-row justify-end px-6 py-4">
             <ul class="flex flex-row font-medium space-x-4 text-theme-base-contrast">
-                <template v-if="$page.props.auth.user">
+                <template v-if="loggedIn">
                     <li>
                         <a
                             class="hover:text-theme-primary"
@@ -35,72 +35,66 @@
 
         <!-- Content Section -->
         <section class="flex flex-1 flex-col items-center justify-center p-8">
-            <div class="relative" >
-                <div
-                    class="
-                        skewed-logo-bg
-                        absolute bg-gradient-to-r from-blue-700 inset-0 to-blue-600 rounded-lg shadow-lg transform
-                    "
-                />
-                <h1
-                    class="
-                        bg-theme-base-contrast flex flex-row font-semibold items-center px-8 py-4 relative rounded-lg text-center text-3xl tracking-wide
-                        sm:text-6xl
-                    "
-                >
-                    <icon-logo-dark class="w-9 sm:w-16" />
-                    <span
+            <h1
+                class="
+                    font-bold text-4xl text-center text-theme-base-contrast
+                    md:text-6xl
+                "
+            >
+                Weather Management System
+            </h1>
+            <h2
+                class="
+                    font-semibold mt-8 text-center text-l text-theme-base-subtle-contrast
+                    md:text-xl
+                "
+            >
+                <template v-if="loggedIn">
+                    Go to
+                    <inertia-link
                         class="
-                            ml-3 text-white
-                            sm:ml-6
+                            text-theme-primary
+                            hover:text-theme-primary-hover
                         "
+                        :href="$route('admin.index')"
                     >
-                        Weather Management System
-                    </span>
-                </h1>
-            </div>
-            <ul class="flex flex-row flex-wrap font-medium justify-center mt-8 pt-4 px-4 space-x-6 text-theme-base-contrast md:text-lg">
-                <li>
-                    <a
-                        class="hover:text-theme-primary"
-                        href="https://laravel.com/docs/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        Laravel
-                    </a>
-                </li>
-                <li>
-                    <a
-                        class="hover:text-theme-primary"
-                        href="https://tailwindcss.com/docs/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        Tailwind
-                    </a>
-                </li>
-                <li>
-                    <a
-                        class="hover:text-theme-primary"
-                        href="https://vuejs.org/v2/guide/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        Vue.js
-                    </a>
-                </li>
-                <li>
-                    <a
-                        class="hover:text-theme-primary"
-                        href="https://inertiajs.com/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        Inertia.js
-                    </a>
-                </li>
-            </ul>
+                        Admin
+                    </inertia-link>
+                    to view the weather in your favourite cities!
+                </template>
+
+                <template v-else>
+                    <template v-if="$routeCheck('login')">
+                        <inertia-link
+                            class="
+                                text-theme-primary
+                                hover:text-theme-primary-hover
+                            "
+                            :href="$route('login')"
+                        >
+                            Login
+                        </inertia-link>
+                    </template>
+
+                    <template v-if="$routeCheck('login') && $routeCheck('register')">
+                        /
+                    </template>
+
+                    <template v-if="$routeCheck('register')">
+                        <inertia-link
+                            class="
+                                text-theme-primary
+                                hover:text-theme-primary-hover
+                            "
+                            :href="$route('register')"
+                        >
+                            Register
+                        </inertia-link>
+                    </template>
+
+                    to view the weather in your favourite cities!
+                </template>
+            </h2>
         </section>
     </div>
 </template>
@@ -108,13 +102,11 @@
 <script>
     export default {
         name: "Index",
-        layout: 'website-layout'
+        layout: 'website-layout',
+        computed: {
+            loggedIn() {
+                return this.$page.props.auth.user;
+            }
+        }
     }
 </script>
-
-<style scoped>
-    .skewed-logo-bg {
-        --tw-rotate: -18deg;
-        --tw-skew-y: 12deg
-    }
-</style>
