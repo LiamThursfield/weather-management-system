@@ -1,11 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\CitiesController;
-use App\Http\Controllers\Api\CMS\PageController;
-use App\Http\Controllers\Api\CRM\FormSubmissionController;
 use App\Http\Controllers\Api\WeatherByCityNameController;
 use App\Http\Controllers\Api\WeatherByLatLonController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
