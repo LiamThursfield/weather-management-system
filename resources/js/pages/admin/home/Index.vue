@@ -9,7 +9,6 @@
         </div>
 
         <div
-            v-if="favouriteCities && favouriteCities.length"
             class="
                 gap-4 grid grid-cols-1
                 sm:grid-cols-2
@@ -21,30 +20,22 @@
                 :key="city.id"
                 :city="city"
             />
+
+            <favourite-city-create-card />
         </div>
 
-        <div
-            v-else
-            class="bg-white p-6 shadow-subtle rounded-lg"
-        >
-            <h1 class="font-semibold text-gray-850">
-                Welcome
-            </h1>
-
-            <p class="mt-2">
-                Add some favourite cites to view their current weather.
-            </p>
-        </div>
     </div>
 </template>
 
 <script>
 
+    import FavouriteCityCreateCard from "../../../components/admin/wms/FavouriteCityCreateCard.vue";
     import WeatherCard from "../../../components/admin/wms/WeatherCard.vue";
 
     export default {
         name: "AdminHomeIndex",
         components: {
+            FavouriteCityCreateCard,
             WeatherCard
         },
         layout: 'admin-layout',
